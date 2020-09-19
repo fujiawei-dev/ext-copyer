@@ -1,0 +1,64 @@
+{
+	"name": "copyer",
+	"displayName": "copyer",
+	"description": "copy file path linux style",
+	"version": "0.0.1",
+	"publisher": "cxfans",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cxfans/copyer"
+	},
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:copyer.copyUnixStyleRelativePath"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "copyer.copyUnixStyleRelativePath",
+				"title": "Copy as Unix Relative Path"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "copyer.copyUnixStyleRelativePath",
+					"group": "6_copypath"
+				}
+			],
+			"editor/title/context": [
+				{
+					"command": "copyer.copyUnixStyleRelativePath",
+					"group": "1_cutcopypaste"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.49.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^14.0.27",
+		"eslint": "^7.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	}
+}
